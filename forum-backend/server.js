@@ -48,12 +48,13 @@ app.get('/getPosts', function (req, res) {
     if (err) throw err;
     for (var i = 0; i < result.length; i++){
       var postDB = result[i];
+/*
       console.log("do banco ae: id->");
       console.log(postDB.id);
       console.log("titulo->");
       console.log(postDB.titulo);
       console.log("mensagem->");
-      console.log(postDB.mensagem);
+      console.log(postDB.mensagem);*/
       var post = {
         id: postDB.id,
         titulo: postDB.titulo,
