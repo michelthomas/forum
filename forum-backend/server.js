@@ -47,7 +47,7 @@ app.post('/addPost', jsonParser, function (req, res) {
     const mensagem = req.body.mensagem;
     console.log('Titulo: ' + titulo);
     console.log('Mensagem: ' + mensagem);
-    const sql = "INSERT INTO 'posts'('titulo', 'mensagem') VALUES (" + titulo + ", " + mensagem + ")";
+    const sql = "INSERT INTO posts(titulo, mensagem) VALUES ('" + titulo + "', '" + mensagem + "');";
     con.query(sql, function (err) {
         if (err) {
             throw err;
