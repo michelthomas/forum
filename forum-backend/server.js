@@ -3,6 +3,16 @@ var app = express();
 
 var mysql = require('mysql');
 
+/* INSTALEM O MYSQL com o XAMPP ou o MYSQL Comunity, rodem o serviço e configurem o usuário e substituam no host e pasword abaixo.
+* Depois, executem o comando abaixo:
+CREATE DATABASE forum;
+USE forum;
+CREATE TABLE posts (
+    id INT NOT NULL AUTO_INCREMENT,
+    titulo VARCHAR(75),
+    mensagem TEXT,
+    PRIMARY KEY (id)
+);*/
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
