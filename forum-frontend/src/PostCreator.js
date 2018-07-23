@@ -3,65 +3,79 @@ import axios from 'axios';
 
 class PostCreator extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      titulo: '',
-      mensagem: ''
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            titulo: '',
+            mensagem: ''
+        };
 
-    this.changeData = this.changeData.bind(this);
-    this.createPost = this.createPost.bind(this);
-  }
+        this.changeTitulo = this.changeTitulo.bind(this);
+        this.changeMensagem = this.changeMensagem.bind(this);
+        this.createPost = this.createPost.bind(this);
+    }
 
 
-  createPost(){
-    console.log('Titulo: ' + this.state.titulo);
-    console.log('Mensagem: ' + this.state.mensagem);
+    createPost(){
+        console.log('Titulo: ' + this.state.titulo);
+        console.log('Mensagem: ' + this.state.mensagem);
 
-    axios({ method: 'POST', url: '/addPost', headers: {'Access-Control-Allow-Origin': '*'}, data: {
-          titulo: this.state.titulo,
-          mensagem: this.state.mensagem
-    } })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+        axios.post('http://localhost:3333/addPost',{
+            titulo: this.state.titulo,
+            mensagem: this.state.mensagem
+        })
+            .then(function (response) {
+                console.log(response);
+                console.log("FOI")
+            })
+            .catch(function (error) {
+                console.log(error);
+                console.log("NÂO FOI")
+            }).then(function () {
+            console.log('Titulo: ' + this.state.titulo);
+            console.log('Mensagem: ' + this.state.mensagem);
+        });
 
-  }
+    }
 
-  changeData(event){
-    this.setState(
-      {
-        titulo: event.target.titulo,
-        mensagem: event.target.mensagem
-      }
-    );
-  }
+    changeTitulo(event) {
+        this.setState(
+            {
+                titulo: event.target.value
+            }
+        );
+    }
 
-  render() {
-    return (
-      <div>
-        <form onSubmit={this.createPost}>
-          <label>
-              Título:
-              <input type="text" name="titulo" value={this.state.titulo}
-                onChange={this.changeData}/>
-          </label>
-          <br/>
-          <label>
-              Mensagem:
-              <input type="text" name="mensagem" value={this.state.mensagem}
-                onChange={this.changeData}/>
-          </label>
-          <br/>
-          <input type="submit" value="Submit" />
-        </form>
-      </div>
-    );
-  }
+    changeMensagem(event){
+        this.setState(
+            {
+                mensagem: event.target.value
+            }
+        );
+    }
+
+    render() {
+        return (
+            <div>
+                <form onSubmit={this.createPost}>
+                    <label>
+                        Título:
+                        <input type="text" name="titulo" value={this.state.titulo}
+                               onChange={this.changeTitulo}/>
+                    </label>
+                    <br/>
+                    <label>
+                        Mensagem:
+                        <input type="text" name="mensagem" value={this.state.mensagem}
+                               onChange={this.changeMensagem}/>
+                    </label>
+                    <br/>
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
+        );
+    }
+
 }
 
 export default PostCreator;

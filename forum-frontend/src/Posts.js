@@ -4,15 +4,26 @@ import PostCreator from './PostCreator';
 
 class Posts extends Component {
 
-  state = {
-    posts: []
-  }
+    constructor(props){
+        super(props);
+        this.state = {
+            posts: []
+        };
+
+
+    }
 
   componentDidMount() {
     axios.get('http://localhost:3333/getPosts').then(res => {
       const posts = res.data;
       this.setState({ posts });
-    }); 
+    }).catch(function (error) {
+          // handle error
+          console.log(error);
+    }).then(function () {
+        console.log("NADA");
+    });
+
   }
 
   render() {
