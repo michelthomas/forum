@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+
 class PostCreator extends Component {
 
     constructor(props) {
@@ -58,19 +59,24 @@ class PostCreator extends Component {
         return (
             <div>
                 <form onSubmit={this.createPost}>
-                    <label>
-                        Título:
-                        <input type="text" name="titulo" value={this.state.titulo}
-                               onChange={this.changeTitulo}/>
-                    </label>
-                    <br/>
-                    <label>
-                        Mensagem:
-                        <input type="text" name="mensagem" value={this.state.mensagem}
-                               onChange={this.changeMensagem}/>
-                    </label>
-                    <br/>
-                    <input type="submit" value="Submit" />
+                    <div className="form-group row">
+                        <label className="col-sm-2 col-form-label">Título:</label>
+                        <div className="col-sm-10">
+                            <input type="text" className="form-control" name="titulo" placeholder="Título" value={this.state.titulo}
+                                   onChange={this.changeTitulo}/>
+                        </div>
+                    </div>
+                    <div className="form-group row">
+                        <label className="col-sm-2 col-form-label">Mensagem:</label>
+                        <div className="col-sm-10">
+                            <textarea className="form-control" placeholder="Mensagem"  name="mensagem" value={this.state.mensagem}
+                                      onChange={this.changeMensagem}/>
+                        </div>
+                    </div>
+
+
+
+                    <input type="submit" class="btn btn-primary" value="Submit" />
                 </form>
             </div>
         );

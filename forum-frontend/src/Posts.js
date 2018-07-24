@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import PostCreator from './PostCreator';
+import bootstrap from 'bootstrap'
+import './posts.css';
 
 class Posts extends Component {
 
@@ -28,23 +30,35 @@ class Posts extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Posts</h1>
+
+
         <div>
-        {this.state.posts.map(post =>
-          <div key={post.id}>
-            <div>
-              {post.titulo}
-            </div>
-            <div>
-              {post.mensagem}
-            </div>
-            <br/>
+          <div>
+              <div className="jumbotron">
+                  <h1>POSTS APLICATION</h1>
+                  <p>Deixe aqui o que pensa, como se sente e suas dúvidas de programação!</p>
+              </div>
           </div>
-        )}
+
+          <div id={"noticias"} className="container">
+            <PostCreator/>
+            <div id={"postados"}>
+
+            {this.state.posts.map(post =>
+              <div key={post.id}>
+                <div>
+                  {post.titulo}
+                </div>
+                <div>
+                  {post.mensagem}
+                </div>
+                <br/>
+              </div>
+            )}
+            </div>
         </div>
-        <br/>
-        <PostCreator/>
+    <br/>
+
       </div>
     );
   }

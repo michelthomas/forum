@@ -16,12 +16,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 * Depois, executem o comando abaixo:
 CREATE DATABASE forum;
 USE forum;
-CREATE TABLE posts (
-    id INT NOT NULL AUTO_INCREMENT,
-    titulo VARCHAR(75),
-    mensagem TEXT,
-    PRIMARY KEY (id)
-);*/
+CREATE TABLE posts (    id INT NOT NULL AUTO_INCREMENT, titulo VARCHAR(75), mensagem TEXT,PRIMARY KEY (id));*/
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
