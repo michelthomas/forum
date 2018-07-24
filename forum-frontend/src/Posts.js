@@ -35,31 +35,42 @@ class Posts extends Component {
         <div>
           <div>
               <div className="jumbotron">
-                  <h1>POSTS APLICATION</h1>
+                  <h1 id={"titulo"}>POSTEX APLICATION</h1>
                   <p>Deixe aqui o que pensa, como se sente e suas dúvidas de programação!</p>
               </div>
           </div>
 
           <div id={"noticias"} className="container">
-            <PostCreator/>
-            <div id={"postados"}>
 
-            {this.state.posts.map(post =>
-              <div key={post.id}>
-                <div>
-                  {post.titulo}
-                </div>
-                <div>
-                  {post.mensagem}
-                </div>
-                <br/>
-              </div>
-            )}
+            <div id={"postados"}>
+                <table className={"table"}>
+                    {this.state.posts.map(post =>
+
+                        <div key={post.id}>
+                            <tr>
+                                <td id={"tituloPost"}>
+                                  {post.titulo}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {post.mensagem}
+                                </td>
+                            </tr>
+                            <br/>
+                      </div>
+                    )}
+                </table>
             </div>
+              <br/>
+              <br/>
+              <PostCreator/>
         </div>
-    <br/>
+        <br/>
 
       </div>
+
+
     );
   }
 }

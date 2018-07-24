@@ -1,3 +1,13 @@
-#titulo h1{
-    text-align: left;
+#titulo{
+    font-size: 50px;
+}
+#tituloPost {
+    font-weight: bold;
+    font-size: 20px;
+}
+tr {
+    text-align: justify;
+}
+td {
+    border: 1px solid #dee2e6;
 }

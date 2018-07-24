@@ -57,7 +57,7 @@ class PostCreator extends Component {
 
     render() {
         return (
-            <div>
+            <div id={"novoPost"}>
                 <form onSubmit={this.createPost}>
                     <div className="form-group row">
                         <label className="col-sm-2 col-form-label">Título:</label>
